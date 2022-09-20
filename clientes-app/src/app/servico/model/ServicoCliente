@@ -1,0 +1,7 @@
+export class ServicoCliente {
+    descricao: string;
+    preco: string;
+	data: String;
+	nomeCliente: string;
+	cpfCliente: string
+}

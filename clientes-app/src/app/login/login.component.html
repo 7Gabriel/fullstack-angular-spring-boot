@@ -1,0 +1,76 @@
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">{{ cadastrando ? 'Cadastro de Novo Usuário' : 'Entrar'}}</h1>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="alert alert-success" *ngIf="mensagemSucesso">
+                                                {{ mensagemSucesso }}
+                                            </div>
+                                            <div class="alert alert-danger" *ngFor="let erro of errors">
+                                                {{ erro }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form class="user" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                                        <div class="form-group">
+                                            <input type="email" [(ngModel)]="username" name="username" class="form-control form-control-user"
+                                                id="inputEmail" aria-describedby="emailHelp"
+                                                placeholder="Enter Email Address..." autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" [(ngModel)]="password" name="password" class="form-control form-control-user"
+                                                id="inputPassword" placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary" *ngIf="!cadastrando">
+                                                <i class="fas fa-sync-alt"></i> Enviar
+                                            </button>
+                                            <button type="submit" class="btn btn-primary" *ngIf="cadastrando" (click)="cadastrar()">
+                                                <i class="fas fa-sync-alt"></i> Cadastrar
+                                            </button>
+                                            <button type="submit" class="btn btn-danger ml-1" *ngIf="cadastrando" (click)="cancela()">
+                                                <i class="fas fa-cancel"></i> Cancelar
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" (click)="preparaCadastrar()">Cadastre-se!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+

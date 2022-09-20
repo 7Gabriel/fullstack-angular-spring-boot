@@ -1,0 +1,70 @@
+<div class="container-fluid">
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Clientes</h1>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-success" *ngIf="mensagemSucesso">
+            Cliente excluido com sucesso!
+        </div>
+
+        <div class="alert alert-success" *ngIf="mensagemErro">
+            Ops! Algo deu errado!
+        </div>
+       
+    </div>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Clientes</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-condensed table-hover" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Data Cadastro</th>
+                        <th>CPF</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of clientes">
+                        <td>{{ cliente.id }}</td>
+                        <td>{{ cliente.createdDate }}</td>
+                        <td>{{ cliente.cpf }}</td>
+                        <td>{{ cliente.name }}</td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/clientes-form/{{ cliente.id }}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" (click)="preparaDelete(cliente)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+
+                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+           
+        </div>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-md-1">
+        <a class="btn btn-warning" routerLink="/clientes/form">
+            <i class="fas fa-plus"></i>
+            Novo
+        </a>
+    </div>
+</div>
+
+
+
+</div>
